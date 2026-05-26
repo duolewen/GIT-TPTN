@@ -81,6 +81,108 @@ void HAL_MspInit(void)
 }
 
 /**
+  * @brief ADC MSP Initialization
+  * This function configures the hardware resources used in this example
+  * @param hadc: ADC handle pointer
+  * @retval None
+  */
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hadc->Instance==ADC3)
+  {
+    /* USER CODE BEGIN ADC3_MspInit 0 */
+
+    /* USER CODE END ADC3_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_ADC3_CLK_ENABLE();
+
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**ADC3 GPIO Configuration
+    PF3     ------> ADC3_IN9
+    PF6     ------> ADC3_IN4
+    PF7     ------> ADC3_IN5
+    PF8     ------> ADC3_IN6
+    PF9     ------> ADC3_IN7
+    PF10     ------> ADC3_IN8
+    PC0     ------> ADC3_IN10
+    PC1     ------> ADC3_IN11
+    PC2     ------> ADC3_IN12
+    PC3     ------> ADC3_IN13
+    PA2     ------> ADC3_IN2
+    PA3     ------> ADC3_IN3
+    */
+    GPIO_InitStruct.Pin = OUT8_Pin|OUT3_Pin|OUT4_Pin|OUT5_Pin
+                          |OUT6_Pin|OUT7_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = OUT9_Pin|OUT10_Pin|OUT11_Pin|OUT12_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = OUT1_Pin|OUT2_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    /* USER CODE BEGIN ADC3_MspInit 1 */
+
+    /* USER CODE END ADC3_MspInit 1 */
+
+  }
+
+}
+
+/**
+  * @brief ADC MSP De-Initialization
+  * This function freeze the hardware resources used in this example
+  * @param hadc: ADC handle pointer
+  * @retval None
+  */
+void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
+{
+  if(hadc->Instance==ADC3)
+  {
+    /* USER CODE BEGIN ADC3_MspDeInit 0 */
+
+    /* USER CODE END ADC3_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_ADC3_CLK_DISABLE();
+
+    /**ADC3 GPIO Configuration
+    PF3     ------> ADC3_IN9
+    PF6     ------> ADC3_IN4
+    PF7     ------> ADC3_IN5
+    PF8     ------> ADC3_IN6
+    PF9     ------> ADC3_IN7
+    PF10     ------> ADC3_IN8
+    PC0     ------> ADC3_IN10
+    PC1     ------> ADC3_IN11
+    PC2     ------> ADC3_IN12
+    PC3     ------> ADC3_IN13
+    PA2     ------> ADC3_IN2
+    PA3     ------> ADC3_IN3
+    */
+    HAL_GPIO_DeInit(GPIOF, OUT8_Pin|OUT3_Pin|OUT4_Pin|OUT5_Pin
+                          |OUT6_Pin|OUT7_Pin);
+
+    HAL_GPIO_DeInit(GPIOC, OUT9_Pin|OUT10_Pin|OUT11_Pin|OUT12_Pin);
+
+    HAL_GPIO_DeInit(GPIOA, OUT1_Pin|OUT2_Pin);
+
+    /* USER CODE BEGIN ADC3_MspDeInit 1 */
+
+    /* USER CODE END ADC3_MspDeInit 1 */
+  }
+
+}
+
+/**
   * @brief RTC MSP Initialization
   * This function configures the hardware resources used in this example
   * @param hrtc: RTC handle pointer
@@ -132,92 +234,6 @@ void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
     /* USER CODE BEGIN RTC_MspDeInit 1 */
 
     /* USER CODE END RTC_MspDeInit 1 */
-  }
-
-}
-
-/**
-  * @brief MMC MSP Initialization
-  * This function configures the hardware resources used in this example
-  * @param hmmc: MMC handle pointer
-  * @retval None
-  */
-void HAL_MMC_MspInit(MMC_HandleTypeDef* hmmc)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hmmc->Instance==SDIO)
-  {
-    /* USER CODE BEGIN SDIO_MspInit 0 */
-
-    /* USER CODE END SDIO_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_SDIO_CLK_ENABLE();
-
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    __HAL_RCC_GPIOD_CLK_ENABLE();
-    /**SDIO GPIO Configuration
-    PC8     ------> SDIO_D0
-    PC9     ------> SDIO_D1
-    PC10     ------> SDIO_D2
-    PC11     ------> SDIO_D3
-    PC12     ------> SDIO_CK
-    PD2     ------> SDIO_CMD
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11
-                          |GPIO_PIN_12;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF12_SDIO;
-    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = GPIO_PIN_2;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF12_SDIO;
-    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-    /* USER CODE BEGIN SDIO_MspInit 1 */
-
-    /* USER CODE END SDIO_MspInit 1 */
-
-  }
-
-}
-
-/**
-  * @brief MMC MSP De-Initialization
-  * This function freeze the hardware resources used in this example
-  * @param hmmc: MMC handle pointer
-  * @retval None
-  */
-void HAL_MMC_MspDeInit(MMC_HandleTypeDef* hmmc)
-{
-  if(hmmc->Instance==SDIO)
-  {
-    /* USER CODE BEGIN SDIO_MspDeInit 0 */
-
-    /* USER CODE END SDIO_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_SDIO_CLK_DISABLE();
-
-    /**SDIO GPIO Configuration
-    PC8     ------> SDIO_D0
-    PC9     ------> SDIO_D1
-    PC10     ------> SDIO_D2
-    PC11     ------> SDIO_D3
-    PC12     ------> SDIO_CK
-    PD2     ------> SDIO_CMD
-    */
-    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11
-                          |GPIO_PIN_12);
-
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_2);
-
-    /* USER CODE BEGIN SDIO_MspDeInit 1 */
-
-    /* USER CODE END SDIO_MspDeInit 1 */
   }
 
 }
