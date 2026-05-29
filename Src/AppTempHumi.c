@@ -1,4 +1,4 @@
-#include "ApptempHmi.h"
+#include "ApptempHumi.h"
 #include "driver_sht31_basic.h"
 
 sht31_address_t addr = SHT31_ADDRESS_1;
@@ -53,3 +53,4 @@ void sAppTemoHmi_Poll(void)//1s ¼ä¸ô½øÈë
 				  break;
 		}
 }
+

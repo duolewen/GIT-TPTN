@@ -580,14 +580,19 @@
               </FileOption>
             </File>
             <File>
-              <FileName>AppTempHmi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\AppTempHmi.c</FilePath>
-            </File>
-            <File>
               <FileName>AppEeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\AppEeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>AppTempHumi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\AppTempHumi.c</FilePath>
+            </File>
+            <File>
+              <FileName>AppDgtPt1000.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\AppDgtPt1000.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -663,6 +668,26 @@
               <FileName>driver_at24cxx_interface.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Device\Src\driver_at24cxx_interface.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_max31865.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_max31865.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_max31865_basic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_max31865_basic.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_max31865_interface.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_max31865_interface.c</FilePath>
+            </File>
+            <File>
+              <FileName>TCA9555.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\TCA9555.c</FilePath>
             </File>
           </Files>
         </Group>
