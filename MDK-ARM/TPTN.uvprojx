@@ -584,6 +584,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\AppTempHmi.c</FilePath>
             </File>
+            <File>
+              <FileName>AppEeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\AppEeprom.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -643,6 +648,21 @@
               <FileName>driver_sht31_interface.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Device\Src\driver_sht31_interface.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_at24cxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_at24cxx.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_at24cxx_basic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_at24cxx_basic.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_at24cxx_interface.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Device\Src\driver_at24cxx_interface.c</FilePath>
             </File>
           </Files>
         </Group>
