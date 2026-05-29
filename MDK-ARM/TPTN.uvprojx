@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FatFs/src;../Bsp</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FatFs/src;../Bsp;../Config;../Untility</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -582,12 +582,57 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Config</GroupName>
+          <Files>
+            <File>
+              <FileName>GlobalDef.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Config\GlobalDef.h</FilePath>
+            </File>
+            <File>
+              <FileName>PinDef.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Config\PinDef.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Untility</GroupName>
+          <Files>
+            <File>
+              <FileName>crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Untility\crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>Endian.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Untility\Endian.c</FilePath>
+            </File>
+            <File>
+              <FileName>MyDelay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Untility\MyDelay.c</FilePath>
+            </File>
+            <File>
+              <FileName>Untility.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Untility\Untility.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Bsp</GroupName>
           <Files>
             <File>
               <FileName>UsartDriver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Bsp\UsartDriver.c</FilePath>
+            </File>
+            <File>
+              <FileName>SimuIIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Bsp\SimuIIC.c</FilePath>
             </File>
           </Files>
         </Group>
